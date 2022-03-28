@@ -2,7 +2,7 @@ import { game } from './views/game.js';
 let boardArr = [ game.redButton, game.blueButton, game.greenButton, game.yellowButton, game.purpleButton ];
 let btnred, btnblue, btngreen, btnyellow, btnpurple;
 
-// Selects which button will light up next
+// Selects which button will light up next and adds it to "Simon's" board
 const generateRandom = () => {
 	let choice = Math.floor(Math.random() * Math.floor(5));
 	let gameChoice = boardArr[choice];
@@ -28,7 +28,7 @@ const gamePlay = () => {
 // Checks if guess what correct
 const compare = () => {
 	for (let i = 0; i < game.simonArr.length; i++) {
-		// Compares user's guesses with "Simon's" list
+		// Compares user's guess list with "Simon's" list
 		if (game.simonArr[i] !== game.playerArr[i]) {
 			game.popup.style.display = 'block';
 			game.popup.innerHTML = `
@@ -102,7 +102,7 @@ game.startButton.addEventListener('click', () => {
 	}
 });
 
-// Adds event listeners to all buttons
+// Add click event listeners to all buttons on load
 for (let btn of boardArr) {
 	btn.addEventListener('click', () => {
 		if (!game.gameOver) {
