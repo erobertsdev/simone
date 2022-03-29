@@ -8,6 +8,26 @@ let boardArr = [
 ];
 let btnred, btnblue, btngreen, btnyellow, btnpurple;
 
+// Event listener for keyboard "controls"
+document.addEventListener('keydown', (e) => {
+	if (e.key === game.redButton['keyVal']) {
+		console.log('RED BUTTON BOOP');
+	}
+	if (e.key === game.blueButton['keyVal']) {
+		console.log('BLUE BUTTON BOOP');
+	}
+	if (e.key === game.greenButton['keyVal']) {
+		console.log('GREEN BUTTON BOOP');
+	}
+	if (e.key === game.yellowButton['keyVal']) {
+		console.log('YELLOW BUTTON BOOP');
+	}
+	if (e.key === game.purpleButton['keyVal']) {
+		console.log('PURPLE BUTTON BOOP');
+	}
+	console.log(e);
+});
+
 // Selects which button will light up next and adds it to "Simon's" board
 const generateRandom = () => {
 	let choice = Math.floor(Math.random() * Math.floor(5));
@@ -54,11 +74,11 @@ const compare = () => {
 			// Score is determined by which round it is
 			game.round++;
 			game.status.textContent = `Round: ${game.round}`;
-			if (game.round <= 4) {
+			if (game.round <= 3) {
 				game.speed = 800;
-			} else if (game.round >= 5 && game.round < 9) {
+			} else if (game.round >= 4 && game.round < 9) {
 				game.speed = 500;
-			} else if (game.round >= 9 && game.round < 13) {
+			} else if (game.round >= 8 && game.round < 13) {
 				game.speed = 300;
 			} else {
 				game.speed = 100;
@@ -74,7 +94,7 @@ const compare = () => {
 // TODO: ADD keyboard playing functionality
 const play = (key) => {};
 
-// Sounds and event listeners for when user clicks button
+// Sounds and game initialization
 game.startButton.addEventListener('click', () => {
 	if (game.gameOver) {
 		btnred = new Audio('https://eroberts.dev/not-simon/src/sounds/a3.mp3');
