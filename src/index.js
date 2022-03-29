@@ -8,26 +8,6 @@ let boardArr = [
 ];
 let btnred, btnblue, btngreen, btnyellow, btnpurple;
 
-// Event listener for keyboard "controls"
-document.addEventListener('keydown', (e) => {
-	if (e.key === game.redButton['keyVal']) {
-		console.log('RED BUTTON BOOP');
-	}
-	if (e.key === game.blueButton['keyVal']) {
-		console.log('BLUE BUTTON BOOP');
-	}
-	if (e.key === game.greenButton['keyVal']) {
-		console.log('GREEN BUTTON BOOP');
-	}
-	if (e.key === game.yellowButton['keyVal']) {
-		console.log('YELLOW BUTTON BOOP');
-	}
-	if (e.key === game.purpleButton['keyVal']) {
-		console.log('PURPLE BUTTON BOOP');
-	}
-	console.log(e);
-});
-
 // Selects which button will light up next and adds it to "Simon's" board
 const generateRandom = () => {
 	let choice = Math.floor(Math.random() * Math.floor(5));
@@ -136,6 +116,8 @@ for (let btn of boardArr) {
 	btn.addEventListener('click', () => {
 		if (!game.gameOver) {
 			game.playerArr.push(btn.id);
+			console.log(btn.id);
+			console.log(btn.children[0].innerHTML);
 			eval(btn.id).currentTime = 0;
 			eval(btn.id).play();
 			if (game.simonArr[game.playerCount] != game.playerArr[game.playerCount]) {
@@ -157,3 +139,124 @@ for (let btn of boardArr) {
 		}
 	});
 }
+
+// TODO: Fix repetitive garbage code, make buttons light up on keydown
+// Event listener for keyboard "controls", way too repetitive
+document.addEventListener('keydown', (e) => {
+	if (e.key === game.redButton['keyVal']) {
+		if (!game.gameOver) {
+			game.playerArr.push(game.redButton['name']);
+			btnred.currentTime = 0;
+			btnred.play();
+			if (game.simonArr[game.playerCount] != game.playerArr[game.playerCount]) {
+				game.popup.style.display = 'block';
+				game.popup.innerHTML = `
+				<p class="final">FINAL SCORE: ${game.round - 1}</p>
+				<button id="reload">PLAY AGAIN</button>`;
+				document.getElementById('reload').addEventListener('click', () => {
+					location.reload();
+				});
+				game.gameOver = true;
+				clearInterval(game.runState);
+				return;
+			}
+			game.playerCount++;
+			if (game.playerArr.length == game.simonArr.length) {
+				compare();
+			}
+		}
+	}
+	if (e.key === game.blueButton['keyVal']) {
+		if (!game.gameOver) {
+			game.playerArr.push(game.blueButton['name']);
+			btnblue.currentTime = 0;
+			btnblue.play();
+			if (game.simonArr[game.playerCount] != game.playerArr[game.playerCount]) {
+				game.popup.style.display = 'block';
+				game.popup.innerHTML = `
+				<p class="final">FINAL SCORE: ${game.round - 1}</p>
+				<button id="reload">PLAY AGAIN</button>`;
+				document.getElementById('reload').addEventListener('click', () => {
+					location.reload();
+				});
+				game.gameOver = true;
+				clearInterval(game.runState);
+				return;
+			}
+			game.playerCount++;
+			if (game.playerArr.length == game.simonArr.length) {
+				compare();
+			}
+		}
+	}
+	if (e.key === game.greenButton['keyVal']) {
+		if (!game.gameOver) {
+			game.playerArr.push(game.greenButton['name']);
+			btngreen.currentTime = 0;
+			btngreen.play();
+			if (game.simonArr[game.playerCount] != game.playerArr[game.playerCount]) {
+				game.popup.style.display = 'block';
+				game.popup.innerHTML = `
+				<p class="final">FINAL SCORE: ${game.round - 1}</p>
+				<button id="reload">PLAY AGAIN</button>`;
+				document.getElementById('reload').addEventListener('click', () => {
+					location.reload();
+				});
+				game.gameOver = true;
+				clearInterval(game.runState);
+				return;
+			}
+			game.playerCount++;
+			if (game.playerArr.length == game.simonArr.length) {
+				compare();
+			}
+		}
+	}
+	if (e.key === game.yellowButton['keyVal']) {
+		if (!game.gameOver) {
+			game.playerArr.push(game.yellowButton['name']);
+			btnyellow.currentTime = 0;
+			btnyellow.play();
+			if (game.simonArr[game.playerCount] != game.playerArr[game.playerCount]) {
+				game.popup.style.display = 'block';
+				game.popup.innerHTML = `
+				<p class="final">FINAL SCORE: ${game.round - 1}</p>
+				<button id="reload">PLAY AGAIN</button>`;
+				document.getElementById('reload').addEventListener('click', () => {
+					location.reload();
+				});
+				game.gameOver = true;
+				clearInterval(game.runState);
+				return;
+			}
+			game.playerCount++;
+			if (game.playerArr.length == game.simonArr.length) {
+				compare();
+			}
+		}
+	}
+	if (e.key === game.purpleButton['keyVal']) {
+		if (!game.gameOver) {
+			game.playerArr.push(game.purpleButton['name']);
+			btnpurple.currentTime = 0;
+			btnpurple.play();
+			if (game.simonArr[game.playerCount] != game.playerArr[game.playerCount]) {
+				game.popup.style.display = 'block';
+				game.popup.innerHTML = `
+				<p class="final">FINAL SCORE: ${game.round - 1}</p>
+				<button id="reload">PLAY AGAIN</button>`;
+				document.getElementById('reload').addEventListener('click', () => {
+					location.reload();
+				});
+				game.gameOver = true;
+				clearInterval(game.runState);
+				return;
+			}
+			game.playerCount++;
+			if (game.playerArr.length == game.simonArr.length) {
+				compare();
+			}
+		}
+	}
+	console.log(e);
+});

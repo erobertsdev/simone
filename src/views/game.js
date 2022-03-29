@@ -6,22 +6,27 @@ export const game = {
 	startButton: document.getElementById('btn-start'),
 	redButton: {
 		dom: document.getElementById('btnred'),
+		name: 'btnred',
 		keyVal: 'a'
 	},
 	blueButton: {
 		dom: document.getElementById('btnblue'),
+		name: 'btnblue',
 		keyVal: 's'
 	},
 	greenButton: {
 		dom: document.getElementById('btngreen'),
+		name: 'btngreen',
 		keyVal: 'd'
 	},
 	yellowButton: {
 		dom: document.getElementById('btnyellow'),
+		name: 'btnyellow',
 		keyVal: 'f'
 	},
 	purpleButton: {
 		dom: document.getElementById('btnpurple'),
+		name: 'btnpurple',
 		keyVal: 'g'
 	},
 	status: document.getElementById('status'),
