@@ -1,5 +1,11 @@
 import { game } from './views/game.js';
-let boardArr = [ game.redButton, game.blueButton, game.greenButton, game.yellowButton, game.purpleButton ];
+let boardArr = [
+	game.redButton['dom'],
+	game.blueButton['dom'],
+	game.greenButton['dom'],
+	game.yellowButton['dom'],
+	game.purpleButton['dom']
+];
 let btnred, btnblue, btngreen, btnyellow, btnpurple;
 
 // Selects which button will light up next and adds it to "Simon's" board
@@ -65,6 +71,9 @@ const compare = () => {
 	}
 };
 
+// TODO: ADD keyboard playing functionality
+const play = (key) => {};
+
 // Sounds and event listeners for when user clicks button
 game.startButton.addEventListener('click', () => {
 	if (game.gameOver) {
@@ -128,5 +137,3 @@ for (let btn of boardArr) {
 		}
 	});
 }
-
-// TODO: ADD keyboard playing functionality

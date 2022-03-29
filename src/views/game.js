@@ -4,11 +4,26 @@ export const game = {
 	speed: 1000,
 	round: 1,
 	startButton: document.getElementById('btn-start'),
-	redButton: document.getElementById('btnred'),
-	blueButton: document.getElementById('btnblue'),
-	greenButton: document.getElementById('btngreen'),
-	yellowButton: document.getElementById('btnyellow'),
-	purpleButton: document.getElementById('btnpurple'),
+	redButton: {
+		dom: document.getElementById('btnred'),
+		keyVal: 'a'
+	},
+	blueButton: {
+		dom: document.getElementById('btnblue'),
+		keyVal: 's'
+	},
+	greenButton: {
+		dom: document.getElementById('btngreen'),
+		keyVal: 'd'
+	},
+	yellowButton: {
+		dom: document.getElementById('btnyellow'),
+		keyVal: 'f'
+	},
+	purpleButton: {
+		dom: document.getElementById('btnpurple'),
+		keyVal: 'g'
+	},
 	status: document.getElementById('status'),
 	popup: document.getElementById('final-popup'),
 	gameDomArr: [],
