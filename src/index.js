@@ -128,3 +128,5 @@ for (let btn of boardArr) {
 		}
 	});
 }
+
+// TODO: ADD keyboard playing functionality

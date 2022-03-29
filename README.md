@@ -1,3 +1,12 @@
-# Símōne
+# Símōne - The Game of Simon but Classier!
 
-A bootcamp assignment.  A Simon-like game just different enough to not be Simon.  But it's pretty much Simon.
+Self-explanatory. Built using just the classics:
+
+HTML\
+CSS\
+JavaScript
+
+### Screenshots
+------------------
+
+Enjoy!
