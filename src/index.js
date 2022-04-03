@@ -1,4 +1,31 @@
 import { game } from './views/game.js';
+
+let btnred,
+	btnblue,
+	btngreen,
+	btnyellow,
+	btnpurple,
+	gameDom = document.getElementById('game');
+
+// Initialize game DOM area
+// TODO: this breaks stuff
+gameDom.innerHTML = `
+<div id="btnred" class="btn">
+<div id="redkey" class="key">a</div>
+</div>
+<div id="btnblue" class="btn">
+<div id="bluekey" class="key">s</div>
+</div>
+<div id="btngreen" class="btn">
+<div id="greenkey" class="key">d</div>
+</div>
+<div id="btnyellow" class="btn">
+<div id="yellowkey" class="key">f</div>
+</div>
+<div id="btnpurple" class="btn">
+<div id="purplekey" class="key">g</div>
+</div>`;
+
 let boardArr = [
 	game.redButton['dom'],
 	game.blueButton['dom'],
@@ -6,7 +33,6 @@ let boardArr = [
 	game.yellowButton['dom'],
 	game.purpleButton['dom']
 ];
-let btnred, btnblue, btngreen, btnyellow, btnpurple;
 
 // Selects which button will light up next and adds it to "Simon's" board
 const generateRandom = () => {
